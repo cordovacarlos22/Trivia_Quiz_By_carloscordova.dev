@@ -1,0 +1,22 @@
+{
+  "name": "trivia_quiz_by_carloscordova.dev",
+  "version": "1.0.0",
+  "description": "trivia app project ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cordovacarlos22/Trivia_Quiz_By_carloscordova.dev.git"
+  },
+  "author": "cordovacarlos.dev, Erick Ponce & Dulce Hayde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cordovacarlos22/Trivia_Quiz_By_carloscordova.dev/issues"
+  },
+  "homepage": "https://github.com/cordovacarlos22/Trivia_Quiz_By_carloscordova.dev#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}
