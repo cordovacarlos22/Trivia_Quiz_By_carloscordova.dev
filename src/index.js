@@ -1,3 +1,5 @@
+
+
 /* This line of code is selecting an HTML element with the id "categories" using the
 `document.querySelector()` method and assigning it to the variable `categoriesSelectedForm`. */
 let categoriesSelectedForm = document.querySelector('#categories');
@@ -63,10 +65,31 @@ debugging purposes. */
 
 let questionsArray = [];
 
-const handleSubmit = (e) => { 
+
+
+
+
+
+
+const handleSubmit = (e) => {
   // e.preventDefault();
   if (categoriesSelectedForm.value === "" || difficultySelectedForm.value === "" || typeSelectedForm.value === "") {
-    alert('Please Filled all the required fields');
+    
+    Toastify({
+      text: "Please Filled all the required fields",
+      duration: 3000,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "bottom", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #3f5efb, #fc466b)",
+      },
+      onClick: function () { } // Callback after click
+    }).showToast();
+    // alert('Please Filled all the required fields');
     return; // Detener la ejecución si hay campos vacíos
   }
   categoryQuerry = categoriesSelectedForm.value;
@@ -107,25 +130,62 @@ const fectchQuestion = async (category, difficulty, type) => {
   try {
     let response = await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=${type}`)
     let data = await response.json();
-    questionsArray = [];
-    questionsArray.push(data.results);
-    console.log("data", data.results);
-    console.log("array", questionsArray);
-    localStorage.setItem("questions", JSON.stringify(questionsArray));
-    if (questionsArray) {
-      window.location.href = 'quiz.html';
-      printQuestion(questionsArray)
+    
+      console.log(data);
+    if (data.results.length > 0) {
+      questionsArray = [];
+      questionsArray.push(data.results);
+      console.log("data", data.results);
+      console.log("array", questionsArray);
+      localStorage.setItem("questions", JSON.stringify(questionsArray));
+      // alert('we are redirecting you to the quiz page')
+      Toastify({
+        text: "we are redirecting you to the quiz page",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function () { } // Callback after click
+      }).showToast();
+      setTimeout(() => {
+        window.location.href = 'quiz.html';
+     },2000)
+    } else {
+      // console.log('No results from api server please try again');
+      // alert('No results from api server please try again');
+      Toastify({
+        text: "No results from api server please try again",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #3f5efb, #fc466b)",
+        },
+        onClick: function () { } // Callback after click
+      }).showToast();
+      return
     }
   } catch (error) {
+   
     console.error(error);
   };
 };
 
 
-const printQuestion =  () => { 
-  
+const printQuestion = () => {
 
-  console.log(localStorage.getItem(questions));
+
+  // console.log(localStorage.getItem(questions));
 
   // questionsArray.map((question, index) => {
   //   questionsContainer.innerHTML += `
