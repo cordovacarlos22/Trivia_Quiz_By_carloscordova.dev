@@ -63,7 +63,7 @@ debugging purposes. */
 
 let questionsArray = [];
 
-const handleSubmit = (e) => { 
+const handleSubmit = (e) => {
   // e.preventDefault();
   if (categoriesSelectedForm.value === "" || difficultySelectedForm.value === "" || typeSelectedForm.value === "") {
     alert('Please Filled all the required fields');
@@ -107,25 +107,34 @@ const fectchQuestion = async (category, difficulty, type) => {
   try {
     let response = await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=${type}`)
     let data = await response.json();
-    questionsArray = [];
-    questionsArray.push(data.results);
-    console.log("data", data.results);
-    console.log("array", questionsArray);
-    localStorage.setItem("questions", JSON.stringify(questionsArray));
-    if (questionsArray) {
-      window.location.href = 'quiz.html';
-      printQuestion(questionsArray)
+    
+      console.log(data);
+    if (data.results.length > 0) {
+      questionsArray = [];
+      questionsArray.push(data.results);
+      console.log("data", data.results);
+      console.log("array", questionsArray);
+      localStorage.setItem("questions", JSON.stringify(questionsArray));
+      alert('we are redirecting you to the quiz page')
+      setTimeout(() => {
+        window.location.href = 'quiz.html';
+     },2000)
+    } else {
+      console.log('No results from api server please try again');
+      alert('No results from api server please try again');
+      return
     }
   } catch (error) {
+   
     console.error(error);
   };
 };
 
 
-const printQuestion =  () => { 
-  
+const printQuestion = () => {
 
-  console.log(localStorage.getItem(questions));
+
+  // console.log(localStorage.getItem(questions));
 
   // questionsArray.map((question, index) => {
   //   questionsContainer.innerHTML += `
