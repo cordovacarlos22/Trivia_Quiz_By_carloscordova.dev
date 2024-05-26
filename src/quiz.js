@@ -18,6 +18,12 @@ let parsedQuestions = JSON.parse(questions);
 let currentQuestionIndex = 0;
 let score = 0;
 
+
+
+// toastyfy 
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css"
+
 // Function to shuffle an array (Fisher-Yates algorithm)
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
