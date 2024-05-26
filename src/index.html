@@ -12,16 +12,16 @@
 
 <body class="  w-screen h-screen flex flex-col items-center justify-center  bg-gray-200 ">
 
-    <header class="text-center m-8 text-indigo-800 ">
-      <h1 class="text-3xl
+  <header class="text-center m-8 text-indigo-800 ">
+    <h1 class="text-3xl
       uppercase 
       font-extrabold ">Quiz Game</h1>
-    </header>
+  </header>
 
   <main class="w-3/4 h-2/4 rounded-lg   bg-white flex flex-col items-center justify-center
    shadow-3xl
    ">
-   
+
 
 
     <form action="" class="flex flex-col  w-3/4 h-3/5 items-center justify-center  m-2 bg-indigo-500  text-white font-bold  md:text-2xl rounded-xl 
@@ -32,8 +32,8 @@
     ">
       <label class="flex flex-col m-2" for="categories">
         Select Categories:
-        <select class="text-black" name="categories" id="categories">
-          <option selected>Any categories</option>
+        <select  class="text-black" name="categories" id="categories">
+          <option value="" disabled  selected>Any categories</option>
           <option value="9">General Knowledge</option>
           <option value="10">Entertainment: Books</option>
           <option value="11">Entertainment: Film</option>
@@ -64,7 +64,7 @@
       <label class="flex flex-col m-2" for="difficulty">
         Select Difficulty:
         <select class="text-black" name="difficulty" id="difficulty">
-          <option selected>Any difficulty</option>
+          <option value="" disabled selected>Any difficulty</option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
@@ -73,23 +73,23 @@
       <label class="flex flex-col m-2" for="type">
         Select Type:
         <select class="text-black" name="type" id="type">
-          <option selected>Any Type</option>
+          <option value="" disabled selected>Any Type</option>
           <option value="multiple">Multiple Choice</option>
           <option value="boolean"> True / False</option>
         </select>
       </label>
     </form>
     <button 
-    id="start_quiz"
-    class=" m-4  w-48 h-16 bg-indigo-500  hover:bg-indigo-400 rounded-lg 
+    onclick={handleSubmit()}
+    id="start_quiz" class=" m-4  w-48 h-16 bg-indigo-500  hover:bg-indigo-400 rounded-lg 
     text-white text-lg font-semibold 
     mt-6
      ">Start quiz</button>
   </main>
- <footer class="items-center m-0 p-0 ">
-  <img class="w-screen" src="./images/wave.svg" alt=" purple Waves">
- </footer>
- <script src="./index.js" defer></script>
+  <footer class="items-center m-0 p-0 ">
+    <img class="w-screen" src="./images/wave.svg" alt=" purple Waves">
+  </footer>
+  <script src="./index.js" defer></script>
 </body>
 
 </html>
