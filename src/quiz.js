@@ -20,10 +20,6 @@ let score = 0;
 
 
 
-// toastyfy 
-import Toastify from 'toastify-js';
-import "toastify-js/src/toastify.css"
-
 // Function to shuffle an array (Fisher-Yates algorithm)
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -46,10 +42,14 @@ const printQuestion = (index) => {
 
   // Construye el HTML para la pregunta y sus respuestas
   container.innerHTML = `
-        <h1>${index + 1}. ${question.question}</h1>
+        <div class="m-8 p-8  text-white">
+        <h1 class="">${index + 1}. ${question.question}</h1>
         <ul>
-            ${answers.map(answer => `<li class="answer">${answer}</li>`).join('')}
+        ${answers.map(answer =>
+    `<li tabindex="1" class="answer ">${answer}</li>`)
+      .join('')}
         </ul>
+        </div>
     `;
 
   // Deshabilita el botón de siguiente pregunta hasta que se seleccione una respuesta
@@ -75,8 +75,13 @@ nextButton.addEventListener('click', () => {
   if (currentQuestionIndex < parsedQuestions[0].length) {
     printQuestion(currentQuestionIndex);
   } else {
-    container.innerHTML = "<p>Has completado el quiz.</p>";
-    scoreContainer.innerHTML = `<p>Tu puntaje es: ${score} de ${parsedQuestions[0].length}</p>`;
+    container.innerHTML = `
+     <div class="w-2/4 text-white m-8 p-8 text-2xl text-bolder ">
+      <p >Has completado el quiz.</p>
+      <p>Tu puntaje es: ${score} de ${parsedQuestions[0].length}
+     </div>
+    `;
+    // scoreContainer.innerHTML = `<p>Tu puntaje es: ${score} de ${parsedQuestions[0].length}</p>`;
     nextButton.style.display = 'none';
     restartButton.style.display = 'block'; // Muestra el botón de reinicio
   }
@@ -88,3 +93,13 @@ restartButton.addEventListener('click', () => {
   // Redirige a index.html
   window.location.href = 'index.html';
 });
+
+function selectAnswer(element) {
+  // Remover la clase 'selected' de todas las opciones
+  document.querySelectorAll('.answer-list li').forEach(item => {
+    item.classList.remove('selected');
+  });
+
+  // Agregar la clase 'selected' a la opción seleccionada
+  element.classList.add('selected');
+}
