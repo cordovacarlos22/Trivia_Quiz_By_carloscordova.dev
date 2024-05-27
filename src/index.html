@@ -7,25 +7,29 @@
   <!-- <link rel="stylesheet" href="input.css"> -->
   <link rel="stylesheet" href="output.css">
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-  <title>Document</title>
+  <title>Trivia-Quiz Game</title>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
-<body class="  w-screen h-screen flex flex-col items-center justify-center  bg-gray-200 ">
+<body class="  w-screen  flex flex-col items-center justify-center  bg-gray-200 ">
+
 
   <header class="text-center m-8 text-indigo-800 ">
     <h1 class="text-3xl
-      uppercase 
-      font-extrabold ">Quiz Game</h1>
+            uppercase 
+            font-extrabold 
+            m-4
+            p-4
+            
+            ">Quiz Game</h1>
   </header>
-
-  <main class="w-3/4 h-2/4 rounded-lg   bg-white flex flex-col items-center justify-center
+  <main class=" rounded-lg   bg-white flex flex-col items-center justify-center
    shadow-3xl
    ">
 
 
 
-    <form action="" class="flex flex-col  w-3/4 h-3/5 items-center justify-center  m-2 bg-indigo-500  text-white font-bold  md:text-2xl rounded-xl 
+    <form action="" class="flex flex-col   items-center justify-center  m-8  bg-indigo-500  text-white font-bold  md:text-2xl rounded-xl 
     shadow-2xl
     shadow-indigo-800/80
 
@@ -33,8 +37,8 @@
     ">
       <label class="flex flex-col m-2" for="categories">
         Select Categories:
-        <select  class="text-black" name="categories" id="categories">
-          <option value="" disabled  selected>Any categories</option>
+        <select class="text-black" name="categories" id="categories">
+          <option value="" disabled selected>Any categories</option>
           <option value="9">General Knowledge</option>
           <option value="10">Entertainment: Books</option>
           <option value="11">Entertainment: Film</option>
@@ -80,9 +84,7 @@
         </select>
       </label>
     </form>
-    <button 
-    onclick={handleSubmit()}
-    id="start_quiz" class=" m-4  w-48 h-16 bg-indigo-500  hover:bg-indigo-400 rounded-lg 
+    <button onclick={handleSubmit()} id="start_quiz" class=" m-4  w-48 h-16 bg-indigo-500  hover:bg-indigo-400 rounded-lg 
     text-white text-lg font-semibold 
     mt-6
      ">Start quiz</button>
