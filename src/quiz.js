@@ -77,8 +77,8 @@ nextButton.addEventListener('click', () => {
   } else {
     container.innerHTML = `
      <div class="w-2/4 text-white m-8 p-8 text-2xl text-bolder ">
-      <p >Has completado el quiz.</p>
-      <p>Tu puntaje es: ${score} de ${parsedQuestions[0].length}
+      <p >You have completed the quiz.</p>
+      <p>Final Score: ${score} out of  ${parsedQuestions[0].length}
      </div>
     `;
     // scoreContainer.innerHTML = `<p>Your Score is : ${score} out of  ${parsedQuestions[0].length}</p>`;
