@@ -81,7 +81,7 @@ nextButton.addEventListener('click', () => {
       <p>Tu puntaje es: ${score} de ${parsedQuestions[0].length}
      </div>
     `;
-    // scoreContainer.innerHTML = `<p>Tu puntaje es: ${score} de ${parsedQuestions[0].length}</p>`;
+    // scoreContainer.innerHTML = `<p>Your Score is : ${score} out of  ${parsedQuestions[0].length}</p>`;
     nextButton.style.display = 'none';
     restartButton.style.display = 'block'; // Muestra el botón de reinicio
   }
