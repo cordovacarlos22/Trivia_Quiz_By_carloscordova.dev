@@ -12,26 +12,10 @@ let scoreContainer = document.querySelector('#scoreContainer');
 with the id "nextQuestion" from the document and storing it in the variable `nextButton`. This
 element is likely the button that allows the user to move to the next question in the quiz. */
 let nextButton = document.querySelector('#nextQuestion');
-/* The line `let restartButton = document.querySelector('#restartQuiz');` is selecting the HTML element
-with the id "restartQuiz" from the document and storing it in the variable `restartButton`. This
-element is likely the button that allows the user to restart the quiz from the beginning. */
-let restartButton = document.querySelector('#restartQuiz'); 
-
-/* The line `let questions = localStorage.getItem('questions');` is retrieving the value of the key
-"questions" from the local storage and storing it in the variable `questions`. This value is likely
-the JSON string containing the quiz questions and answers. */
+let restartButton = document.querySelector('#restartQuiz');
 let questions = localStorage.getItem('questions');
-/* The line `let parsedQuestions = JSON.parse(questions);` is parsing the JSON string stored in the
-variable `questions` and storing the resulting object in the variable `parsedQuestions`. This object
-contains the quiz questions and answers in a structured format that can be easily accessed and
-manipulated by the script. */
 let parsedQuestions = JSON.parse(questions);
-/* The line `let currentQuestionIndex = 0;` is initializing the variable `currentQuestionIndex`
-with the value 0. This variable is used to keep track of the current question index in the quiz
-questions array. */
 let currentQuestionIndex = 0;
-/* The line `let score = 0;` is initializing the variable `score` with the value 0. This variable
-is used to keep track of the current score in the quiz. */
 let score = 0;
 
 
@@ -48,18 +32,17 @@ function shuffleArray(array) {
 
 
 const printQuestion = (index) => {
-
   let question = parsedQuestions[0][index]; // Accede a la pregunta en la estructura [0][index]
 
   // Combina las respuestas incorrectas y correctas
-  let answers = [...question.incorrect_answers,question.correct_answer];
+  let answers = [...question.incorrect_answers, question.correct_answer];
 
   // Baraja las respuestas
   shuffleArray(answers);
 
   // Construye el HTML para la pregunta y sus respuestas
   container.innerHTML = `
-        <div class="m-8 p-8  text-white  ">
+        <div class="m-8 p-8  text-white">
         <h1 class="">${index + 1}. ${question.question}</h1>
         <ul>
         ${answers.map(answer =>
