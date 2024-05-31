@@ -730,7 +730,7 @@ video {
 
 
 li:focus{
-  background-color: skyblue;
+  background-color: rgb(224 231 255);
   color: black; 
   outline:solid 1px skyblue;
 }
